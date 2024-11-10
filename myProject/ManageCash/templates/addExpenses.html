@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+
+
+{% block body %}
+
+
+
+
+<h3>Add Your Expenses Here</h3>
+
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="lname">Expense Description</label>
+    <textarea type="text" id="lname" name="description" placeholder="Source Description"></textarea>
+
+    <label for="fname">Amount</label>
+    <input type="text" id="fname" name="amount" placeholder="Your amount of money">
+
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+
+    
+{% endblock body %}
+    

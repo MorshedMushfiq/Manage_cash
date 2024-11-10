@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+
+
+
+{% block body %}
+
+
+
+
+<h2>Expense Single View</h2>
+
+<div class="card">
+  <div class="container">
+    <p>{{viewExpense.description}}</p> 
+    <p><b>${{viewExpense.amount}}</b></p> 
+    <p>{{viewExpense.created_at|date:'y-m-d'}}</p> 
+  </div>
+
+</div>
+
+<a class="btn btn-primary btn-sm py-2 my-3" href="{% url 'expenseManagement' %}">Back To Expense Management</a>
+
+
+
+
+    
+{% endblock body %}
+    
+
+

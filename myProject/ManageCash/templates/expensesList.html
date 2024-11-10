@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+
+
+
+{% block body %}
+    
+
+<h1>Expense Table</h1>
+<a class="btn btn-success btn-sm py-2 my-3" href="{% url 'addExpense' %}">Add new Expense</a>
+
+<table id="customers">
+  <tr>
+    <th>Expense Description</th>
+    <th>Expense Amount</th>
+    <th>Expense Create at</th>
+    <th>Actions</th>
+  </tr>
+
+
+  {% for addexpenseInfo in addexpenseData %}
+    <tr>
+        <td>{{addexpenseInfo.description}}</td>
+        <td>${{addexpenseInfo.amount}}</td>
+        <td>{{addexpenseInfo.created_at|date:"Y-m-d" }}</td>
+        <td>
+            <a href="{% url 'expenseView' addexpenseInfo.id %}">View</a>
+            <a href="{% url 'expenseEdit' addexpenseInfo.id %}">Edit</a>
+            <a href="{% url 'expenseDelete' addexpenseInfo.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5" style="color:red; text-align: center;">No data available in table</td>
+    </tr>
+  {% endfor %}
+
+</table>
+
+<a class="btn btn-secondary btn-sm py-2" href="{% url 'profilePage' %}">Back to Profile</a>
+
+
+
+
+
+
+{% endblock body %}
+    

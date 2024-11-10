@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+
+
+
+{% block body %}
+    
+
+    <h1 class="py-3 px-1">Cash Table</h1>
+    <a class="btn btn-primary btn-sm py-2 my-3" href="{% url 'addCash' %}">Add new Cash</a>
+
+    <table id="customers">
+      <tr>
+        <th>Source Name</th>
+        <th>Source Description</th>
+        <th>Source Amount</th>
+        <th>Source Create at</th>
+        <th>Actions</th>
+      </tr>
+
+
+      {% for addCashInfo in addCashData %}
+        <tr>
+            <td>{{addCashInfo.source}}</td>
+            <td>{{addCashInfo.description}}</td>
+            <td>${{addCashInfo.amount}}</td>
+            <td>{{addCashInfo.created_at|date:"Y-m-d" }}</td>
+            <td>
+                <a href="{% url 'cashView' addCashInfo.id %}">View</a>
+                <a href="{% url 'cashEdit' addCashInfo.id %}">Edit</a>
+                <a href="{% url 'cashDelete' addCashInfo.id %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" style="color:red; text-align: center;">No data available in table</td>
+        </tr>
+      {% endfor %}
+
+    </table>
+
+    <a class="btn btn-warning btn-sm py-2 my-3" href="{% url 'profilePage' %}">Back to Profile</a>
+
+
+
+
+{% endblock body %}
+    

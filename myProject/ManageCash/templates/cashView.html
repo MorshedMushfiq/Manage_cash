@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+
+
+
+{% block body %}
+
+
+
+
+<h2>Cash Single View</h2>
+
+<div class="card">
+  <div class="container">
+    <h4><b>{{viewCash.source}}</b></h4> 
+    <p>{{viewCash.description}}</p> 
+    <p><b>${{viewCash.amount}}</b></p> 
+    <p>{{viewCash.created_at|date:'y-m-d'}}</p> 
+  </div>
+
+</div>
+
+<a class="btn btn-warning btn-sm py-2 my-3" href="{% url 'cashManagement' %}">Back To Cash Management</a>
+
+
+
+
+    
+{% endblock body %}
+    
+
+

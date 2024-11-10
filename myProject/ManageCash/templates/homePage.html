@@ -1,0 +1,60 @@
+{% extends 'master.html' %} {% block body %}
+
+<div class="row m-0 p-0 py-2 px-1">
+    <div class="title2" style="background-color: rgba(111, 255, 212, 0.8);">
+        <h1 class="text-center">Welcome To Personal Cash Management App</h1>
+        <p class='lead text-center w-75 mx-auto py-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius facilis blanditiis atque ab quaerat praesentium, perspiciatis recusandae alias? Officiis deserunt aut, iste vel veniam expedita neque aliquam? Eligendi, qui deleniti.</p>
+    </div>
+</div>
+
+<h1 class='text-success text-center fw-normal fst-italic py-2 fs-3'>Your Money Insightouts Counter</h1>
+<div class="row text-center m-0 p-0">
+
+
+    <div class="col-md-4">
+        <div class="counter-box colored" style="background-color: burlywood;">
+            <i class="fa-solid fa-cash-register"></i>
+            <span class="counter">${{totalCash}}</span>
+            <p>Total Cash</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="counter-box" style="background-color: burlywood;">
+            <i class="fa-solid fa-mask"></i>
+            <span class="counter">${{totalExpense|floatformat:2}}</span>
+            <p>Total Expenses</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="counter-box" style="background-color: burlywood;">
+            <i class="fa-solid fa-wallet"></i>
+            <span class="counter">${{ balance|floatformat:2 }}</span>
+            <p>Available Cash</p>
+        </div>
+    </div>
+
+</div>
+<h2 class='text-center text-danger'>Our App Services</h2>
+
+<div class="row m-0 p-0 py-2">
+    <div class="card col-lg-4">
+        <h4>Add Incomes List</h4>
+        <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus porro, iure eum, laboriosam, consectetur modi perspiciatis animi qui consequuntur labore illo odit velit. Dolores laudantium pariatur suscipit ratione eos incidunt.</p>
+    </div>
+    <div class="card col-lg-4">
+        <h4>Expenses List</h4>
+        <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus porro, iure eum, laboriosam, consectetur modi perspiciatis animi qui consequuntur labore illo odit velit. Dolores laudantium pariatur suscipit ratione eos incidunt.</p>
+    </div>
+    <div class="card col-lg-4">
+        <h4>Overall Preview</h4>
+        <p class="w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus porro, iure eum, laboriosam, consectetur modi perspiciatis animi qui consequuntur labore illo odit velit. Dolores laudantium pariatur suscipit ratione eos incidunt.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock body %}

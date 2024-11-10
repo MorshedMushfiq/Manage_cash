@@ -1,0 +1,109 @@
+{% extends 'master.html' %}
+
+{% block body %}
+<style>
+    .profile-container {
+        background-color: #baf5ff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #25c0e3ad;
+        width: 400px;
+        text-align: center;
+        margin: 20px auto; /* Center the profile container */
+    }
+    
+    h2 {
+        margin: 10px 0;
+        color: #333;
+    }
+    
+    p {
+        margin: 5px 0;
+        color: #555;
+    }
+    
+    .button-container {
+        margin-top: 20px;
+    }
+    
+    .edit-button {
+        padding: 10px 20px;
+        background-color: #6a11cb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-bottom: 10px;
+    }
+    
+    .edit-button:hover {
+        background-color: #2575fc;
+    }
+    
+    .action-link {
+        display: inline-block;
+        margin: 5px 10px;
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .action-link:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+    
+</style>
+<div class="profile-container">
+    <h2>{{ request.user.username }}</h2>
+
+<p><strong>Email:</strong> {{ request.user.email }}</p>
+
+    <div class="button-container">
+        <a class="btn btn-primary btn-sm" href="{% url 'editProfile' %}">Edit Profile</a>
+        <p>Cash Management</p>
+        <a class="btn btn-secondary btn-sm" href="{% url 'addCash' %}">Add Cash</a>
+        <a class="btn btn-outline-success btn-sm" href="{% url 'cashManagement' %}">Cash Management</a>
+        <p>Expense Management</p>
+        <a class="btn btn-danger btn-sm" href="{% url 'addExpense' %}">Add Expense</a>
+        <a class="btn btn-warning btn-sm" href="{% url 'expenseManagement' %}">Expense Management</a>
+
+    </div>
+</div>
+<div class="container">
+    
+    <h2 class="text-center text-info">Money Insights</h2>
+    <div class="row">
+
+	<div class="four col-md-4">
+		<div class="counter-box colored">
+			<i class="fa-solid fa-cash-register" style="font-size: 32px; color: red;"></i><br>
+			<span class="counter">${{totalCash}}</span>
+			<p><b>Total Cash</b></p>
+		</div>
+	</div>
+	<div class="four col-md-4">
+		<div class="counter-box">
+			<i class="fa-solid fa-mask" style="font-size: 32px; color: red;"></i><br>
+			<span class="counter">${{totalExpense|floatformat:2}}</span>
+			<p><b>Total Expenses</b></p>
+		</div>
+	</div>
+	<div class="four col-md-4">
+		<div class="counter-box">
+			<i class="fa-solid fa-wallet" style="font-size: 32px; color: red;"></i><br>
+			<span class="counter">${{ balance|floatformat:2 }}</span>
+			<p><b>Available Cash</b></p>
+		</div>
+	</div>
+  </div>	
+</div>
+
+{% endblock body %}
